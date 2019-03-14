@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "circos": "^2.1.0"
+  }
+}
