@@ -1,5 +1,5 @@
 
-function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, daysOffend) {
+function drawCircos(error, months, Circle2014, Circle2015, Circle2016, Circle2017) {
   var width = "800";
   var circosHeatmap = new Circos({
         container: '#heatmapChart',
@@ -7,7 +7,7 @@ function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, d
         height: width
     });
 
-    electricalConsumption = electricalConsumption.map(function(d) {
+    Circle2014 = Circle2014.map(function(d) {
       return {
         block_id: d.month,
         start: parseInt(d.start),
@@ -15,7 +15,7 @@ function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, d
         value: parseFloat(d.value)
       };
     })
-    daysOff = daysOff.map(function(d) {
+    Circle2015 = Circle2015.map(function(d) {
       return {
         block_id: d.month,
         start: parseInt(d.start),
@@ -23,7 +23,7 @@ function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, d
         value: parseFloat(d.value)
       };
     })
-    daysOffneu = daysOffneu.map(function(d) {
+    Circle2016 = Circle2016.map(function(d) {
       return {
         block_id: d.month,
         start: parseInt(d.start),
@@ -31,7 +31,7 @@ function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, d
         value: parseFloat(d.value)
       };
     })
-    daysOffend = daysOffend.map(function(d) {
+    Circle2017 = Circle2017.map(function(d) {
       return {
         block_id: d.month,
         start: parseInt(d.start),
@@ -55,7 +55,7 @@ function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, d
           }
         }
       )
-      .heatmap('electricalConsumption', electricalConsumption, {
+      .heatmap('Circle2014', Circle2014, {
         innerRadius: 0.8,
         outerRadius: 0.98,
         logScale: false,
@@ -66,19 +66,19 @@ function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, d
           }
         }
       })
-      .heatmap('days-off', daysOff, {
+      .heatmap('Circle2015', Circle2015, {
         innerRadius: 0.55,
         outerRadius: 0.75,
         logScale: false,
         color: 'Blues'
       })
-      .heatmap('days-off-neu', daysOffneu, {
+      .heatmap('Circle2016', Circle2016, {
         innerRadius: 0.35,
         outerRadius: 0.5,
         logScale: false,
         color: 'Reds'
       })
-      .heatmap('days-off-end', daysOffend, {
+      .heatmap('Circle2017', Circle2017, {
         innerRadius: 0.15,
         outerRadius: 0.3,
         logScale: false,
@@ -89,8 +89,8 @@ function drawCircos(error, months, electricalConsumption, daysOff, daysOffneu, d
 
 d3.queue()
   .defer(d3.json, './months.json')
-  .defer(d3.csv, './circle_1_ersatz.csv')
-  .defer(d3.csv, './circle_3_ersatz.csv')
-  .defer(d3.csv, './circle_4_ersatz.csv')
-  .defer(d3.csv, './circle_5_ersatz.csv?ts=<?= time()')
+  .defer(d3.csv, './circle2014.csv')
+  .defer(d3.csv, './circle2015.csv')
+  .defer(d3.csv, './circle2016.csv')
+  .defer(d3.csv, './circle2017.csv')
   .await(drawCircos)
