@@ -59,7 +59,7 @@ function drawCircos(error, months, Circle2014, Circle2015, Circle2016, Circle201
         innerRadius: 0.8,
         outerRadius: 0.98,
         logScale: false,
-        color: 'Purples',
+        color: 'RdYlGn',
         events: {
           'mouseover.demo': function (d, i, nodes, event) {
             console.log(d, i, nodes, event)
@@ -68,21 +68,21 @@ function drawCircos(error, months, Circle2014, Circle2015, Circle2016, Circle201
       })
       .heatmap('Circle2015', Circle2015, {
         innerRadius: 0.55,
-        outerRadius: 0.75,
+        outerRadius: 0.8,
         logScale: false,
-        color: 'Purples'
+        color: 'RdYlGn'
       })
       .heatmap('Circle2016', Circle2016, {
         innerRadius: 0.35,
-        outerRadius: 0.5,
+        outerRadius: 0.55,
         logScale: false,
-        color: 'Purples'
+        color: 'RdYlGn'
       })
       .heatmap('Circle2017', Circle2017, {
         innerRadius: 0.15,
-        outerRadius: 0.3,
+        outerRadius: 0.35,
         logScale: false,
-        color: 'Purples'
+        color: 'RdYlGn'
       })
       .render()
 }
